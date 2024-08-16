@@ -138,6 +138,14 @@ Every setting has its own usage and it is logical to allow the developer to lock
 
 - Use the Burn Bootloader command.
 
+### Problems while burning the Bootloader
+
+Arduino changed the protocol used by the Arduino as ISP programmer in order to allow more boards.
+
+An unfortunate side effect of this change is that it makes it more likely that a reset disabling capacitor will be needed on boards where it was previously not necessary.
+
+If you see messages looking like `avrdude: stk500_getparm(): (a) protocol error, expect=0x??, resp=0x??` try connecting a 10 uF capacitor between the reset and ground pins on the board you're using as an Arduino as ISP [as mentionned in this Arduino forum topic](https://forum.arduino.cc/t/avrdude-stk500_disable-protocol-error-expect-0x14-resp-0x10/590824/2).
+
 ### Learn more
 
 You can find more basic tutorials in the [built-in examples](/built-in-examples) section.
